@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>100 razones</title>
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:radial-gradient(ellipse at 50% 25%,#2e0b42,#07010d 72%);color:#ffe3f0;font-family:Georgia,serif;overflow:hidden}
+#lock{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(8,2,14,.55);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);transition:opacity 1.6s,visibility 1.6s}
+#lock.fuera{opacity:0;visibility:hidden;pointer-events:none}
+#caja{max-width:340px;width:100%;text-align:center}
+#caja h1{font-size:25px;font-weight:400;font-style:italic;margin:0 0 6px;text-shadow:0 0 18px #ff5fa8}
+#caja p{margin:0 0 18px;font-size:14px;opacity:.8}
+#fecha{width:100%;padding:13px;border-radius:12px;border:1px solid #ff7fb5;background:rgba(255,255,255,.08);color:#fff;font-size:20px;text-align:center;letter-spacing:2px;outline:none}
+button{font-family:inherit;cursor:pointer}
+#ir,#btn{width:100%;margin-top:12px;padding:13px;border:0;border-radius:12px;background:linear-gradient(90deg,#ff5fa8,#b655d6);color:#fff;font-size:16px}
+#msg{min-height:20px;margin-top:10px;font-size:13px;color:#ffb3d4}
+#lock.mal #caja{animation:tiembla .45s}
+@keyframes tiembla{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+#app{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:calc(env(safe-area-inset-top,0px) + 14px) 16px calc(env(safe-area-inset-bottom,0px) + 16px);opacity:0;transition:opacity 2s;z-index:5}
+#app.on{opacity:1}
+h2{margin:0;font-size:22px;font-weight:400;font-style:italic;text-shadow:0 0 16px #ff5fa8;text-align:center}
+#barra{width:min(80vw,320px);height:4px;border-radius:4px;background:rgba(255,255,255,.12);margin-top:10px;overflow:hidden}
+#prog{height:100%;width:0;background:linear-gradient(90deg,#ff5fa8,#c9a7f0);transition:width .6s}
+#card{width:min(90vw,420px);min-height:20vh;padding:20px 22px;border-radius:6px;background:linear-gradient(#fff6fa,#ffdcec);color:#5a1740;box-shadow:0 10px 36px rgba(255,95,168,.35);text-align:center;display:flex;flex-direction:column;justify-content:center;transform:rotate(-1deg)}
+#card small{display:block;color:#b83b86;letter-spacing:1px;margin-bottom:8px;font-size:13px}
+#card p{margin:0;font-size:20px;line-height:1.45;font-style:italic}
+#card.sale{animation:sale 1.1s cubic-bezier(.2,.9,.3,1.15)}
+@keyframes sale{0%{transform:translateY(240px) scale(.2) rotate(-25deg);opacity:0}30%{opacity:1}100%{transform:translateY(0) scale(1) rotate(-1deg);opacity:1}}
+#jar{height:min(37vh,310px);width:auto;max-width:80vw;cursor:pointer;filter:drop-shadow(0 0 18px rgba(255,95,168,.4));-webkit-tap-highlight-color:transparent}
+#jar.t{animation:tiembla .5s}
+#ctl{width:min(90vw,420px);display:flex;gap:10px}
+#ctl button{margin-top:0}
+#auto{width:auto;padding:13px 14px;background:rgba(255,255,255,.1);border:1px solid #ff7fb5;border-radius:12px;color:#ffe3f0;font-size:14px}
+.h{position:fixed;bottom:-30px;z-index:1;color:#ff7fb5;pointer-events:none;animation:sube linear forwards}
+@keyframes sube{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+</style>
+</head>
+<body>
+<div id="lock"><div id="caja">
+  <h1>Una fecha, una puerta</h1>
+  <p>Escribe la fecha que lo cambió todo</p>
+  <input id="fecha" type="text" inputmode="numeric" autocomplete="off" maxlength="10" placeholder="DD/MM/AAAA">
+  <button id="ir">Entrar</button>
+  <div id="msg"></div>
+</div></div>
+
+<div id="app">
+  <div style="text-align:center"><h2>100 razones para amarte, Violeta</h2><div id="barra"><div id="prog"></div></div></div>
+  <div id="card"><small>Primer mes ❤</small><p>Toca el frasco para sacar el primer papelito</p></div>
+  <svg id="jar" viewBox="0 0 220 290" aria-label="Frasco de papelitos">
+    <defs><clipPath id="cj"><path d="M52 66 Q36 78 36 104 L36 238 Q36 270 68 270 L152 270 Q184 270 184 238 L184 104 Q184 78 168 66 Z"/></clipPath><linearGradient id="vid" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".3"/><stop offset=".35" stop-color="#fff" stop-opacity=".04"/><stop offset=".8" stop-color="#fff" stop-opacity=".03"/><stop offset="1" stop-color="#fff" stop-opacity=".24"/></linearGradient><radialGradient id="glow" cx=".5" cy=".6" r=".6"><stop offset="0" stop-color="#ff7fb5" stop-opacity=".6"/><stop offset="1" stop-color="#ff7fb5" stop-opacity="0"/></radialGradient></defs><ellipse cx="110" cy="276" rx="82" ry="8" fill="#ff5fa8" opacity=".3"/>
+    <g clip-path="url(#cj)"><rect x="30" y="60" width="160" height="215" fill="url(#glow)"/><g id="pap"></g></g>
+    <path d="M52 66 Q36 78 36 104 L36 238 Q36 270 68 270 L152 270 Q184 270 184 238 L184 104 Q184 78 168 66 Z" fill="url(#vid)" stroke="#ffd0e6" stroke-opacity=".85" stroke-width="3"/><path d="M50 96 Q46 150 50 228" stroke="#fff" stroke-opacity=".55" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M172 104 Q175 150 172 205" stroke="#fff" stroke-opacity=".25" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <rect x="56" y="32" width="108" height="36" rx="9" fill="#c9a7f0" stroke="#fff" stroke-opacity=".7" stroke-width="2"/><path d="M62 44h96M62 56h96" stroke="#fff" stroke-opacity=".25"/><rect x="50" y="64" width="120" height="9" rx="3" fill="#ff5fa8"/><path d="M104 74L94 96M116 74L126 96" stroke="#ff5fa8" stroke-width="5" stroke-linecap="round"/><path d="M110 68Q88 50 77 65Q88 82 110 70ZM110 68Q132 50 143 65Q132 82 110 70Z" fill="#ff7fb5" stroke="#ffd0e6"/><circle cx="110" cy="68" r="7" fill="#ff3d8f" stroke="#ffd0e6"/>
+    <g transform="rotate(-4 110 205)"><rect x="62" y="184" width="96" height="40" rx="7" fill="#fff6fa" stroke="#ff7fb5" stroke-width="2"/><text x="110" y="210" text-anchor="middle" fill="#b83b86" font-size="19" font-style="italic" font-family="Georgia,serif">Violeta ❤</text></g>
+  </svg>
+  <div id="ctl"><button id="btn">Sacar un papelito 💌</button><button id="auto">▶ Auto</button></div>
+</div>
+
+<script>
+const R=`Porque tu cabello de ese violeta suave parece sacado de un atardecer.
+Porque tus ojos son preciosos y yo me pierdo en ellos sin querer salir.
+Porque tus caritas me derriten por completo.
+Porque contigo un solo mes se siente como un universo entero.
+Porque me haces sonreír incluso en los días grises.
+Porque aunque estemos lejos, siento que estás a mi lado.
+Porque eres la primera persona en la que pienso al despertar.
+Porque tu nombre suena a poesía.
+Porque la distancia no ha podido contra lo que sentimos.
+Porque tu mirada tiene un brillo que no he visto en nadie más.
+Porque cuando haces una carita, el mundo se detiene un segundo.
+Porque tu color de cabello es tan único como tú.
+Porque contigo puedo ser completamente yo.
+Porque me haces querer ser mejor persona.
+Porque cada mensaje tuyo me alegra el día.
+Porque tu voz me calma como ninguna canción.
+Porque tu sonrisa es mi parte favorita del día.
+Porque me haces sentir en casa aunque estés a kilómetros.
+Porque tus ojos dicen cosas que las palabras no alcanzan.
+Porque contigo hasta lo más simple se vuelve especial.
+Porque me haces reír de verdad.
+Porque tu ternura es mi debilidad.
+Porque contigo aprendí a esperar con ilusión.
+Porque cuando te veo en pantalla, se me olvida todo lo demás.
+Porque tu cabello lila parece de cuento, y tú eres la protagonista.
+Porque eres valiente, y eso me inspira.
+Porque me haces sentir querido sin tener que pedirlo.
+Porque tu forma de mirar hace que todo parezca más bonito.
+Porque cada carita tuya es un regalo que no sé cómo merecí.
+Porque quiero verte envejecer a mi lado.
+Porque contigo el tiempo vuela y las horas se me hacen minutos.
+Porque tu risa es el sonido que más quiero escuchar.
+Porque eres mi persona favorita para contarle todo.
+Porque tus ojos tienen una dulzura que desarma.
+Porque me haces creer en el amor de verdad.
+Porque en tu abrazo imaginado ya me siento a salvo.
+Porque cada día contigo es un buen día, aunque sea de lejos.
+Porque tu cabello suave y violeta combina con tu forma de ser: especial.
+Porque me escuchas como si cada palabra importara.
+Porque me haces extrañarte de la mejor manera.
+Porque tienes un corazón enorme.
+Porque eres mi calma y mi emoción al mismo tiempo.
+Porque contigo cualquier plan, hasta el más simple, me emociona.
+Porque tus caritas son mi pantalla de inicio favorita.
+Porque no necesito que seas perfecta: me gustas tal como eres.
+Porque haces que lo difícil parezca más fácil.
+Porque cuando te ríes, me río yo también aunque no sepa de qué.
+Porque tu mirada es la más bonita que he visto.
+Porque me dan ganas de cuidarte siempre.
+Porque eres mi motivo para esperar el día en que estemos juntos.
+Porque tu sola presencia me cambia el ánimo.
+Porque tienes un brillo propio, como las estrellas.
+Porque contigo la palabra "mañana" suena mejor.
+Porque amas con sinceridad.
+Porque tus ojos son dos galaxias y quiero explorarlas.
+Porque me haces sentir importante.
+Porque tus detalles, hasta los más pequeños, me enamoran.
+Porque me haces sentir que la distancia es solo un número.
+Porque tu cabello parece un sueño pintado a mano.
+Porque me enseñas a ver el lado bonito de las cosas.
+Porque contigo puedo guardar silencio y aun así estar bien.
+Porque tus caritas tiernas me arreglan cualquier día malo.
+Porque eres alegre, y esa alegría se me contagia.
+Porque me haces sentir afortunado.
+Porque cuando hablas de lo que te gusta, tus ojos brillan más.
+Porque eres sincera conmigo.
+Porque tu nombre me recuerda a una flor, y tú eres la más bonita.
+Porque me haces querer cumplir mis metas, también por nosotros.
+Porque tu manera de ser me da paz.
+Porque eres mi lugar favorito, aunque no estemos en el mismo sitio.
+Porque cada vez que dices mi nombre, suena distinto.
+Porque tus ojos y tu sonrisa juntos son una combinación peligrosa para mi corazón.
+Porque me haces sentir acompañado a cualquier hora.
+Porque tienes una ternura que no se aprende: se nace con ella.
+Porque me encanta verte reír.
+Porque contigo un mensaje corto vale más que mil palabras.
+Porque eres paciente conmigo.
+Porque me haces ilusión en las cosas pequeñas.
+Porque tu cabello, tus ojos y tus caritas: no sé cuál me gusta más.
+Porque en un mes me enseñaste lo que es sentirse querido de verdad.
+Porque eres tan bonita por fuera como por dentro.
+Porque haces que quiera inventar mil formas de sorprenderte.
+Porque contigo los días largos se hacen cortos.
+Porque tienes una mirada que dice "todo va a estar bien".
+Porque me haces sentir que estoy donde debo estar.
+Porque eres única, y nadie se te parece.
+Porque tu cariño se siente aunque nos separen kilómetros.
+Porque cada carita que haces es distinta y todas me enamoran.
+Porque quiero darte la mano y no soltarla.
+Porque me haces sentir que podemos con todo.
+Porque eres mi pensamiento favorito antes de dormir.
+Porque contigo aprendí que esperar vale la pena.
+Porque tu belleza no es solo lo que se ve: se siente.
+Porque me haces querer escribirte cartas, como esta.
+Porque eres mi persona favorita en todo este universo.
+Porque este primer mes contigo ha sido el mejor de mi vida.
+Porque quiero celebrar muchos meses más contigo.
+Porque sin darme cuenta, te volviste mi hogar.
+Porque aunque te di 99 razones, todavía me quedan infinitas.
+Porque simplemente eres tú, Violeta, y te amo.`.trim().split('\n');
+const $=id=>document.getElementById(id);
+let n=0,timer=null,seed=5;
+const rnd=()=>{seed=(seed*16807)%2147483647;return(seed-1)/2147483646};
+
+// Candado
+const inp=$('fecha');
+inp.addEventListener('input',()=>{let d=inp.value.replace(/\D/g,'').slice(0,8),s=d;if(d.length>4)s=d.slice(0,2)+'/'+d.slice(2,4)+'/'+d.slice(4);else if(d.length>2)s=d.slice(0,2)+'/'+d.slice(2);inp.value=s});
+function entrar(){
+  if(inp.value.replace(/\D/g,'')==='19092026'){$('lock').classList.add('fuera');$('app').classList.add('on');inp.blur();corazones(12)}
+  else{$('msg').textContent='Esa no es la fecha… inténtalo otra vez 💔';$('lock').classList.add('mal');setTimeout(()=>$('lock').classList.remove('mal'),500)}
+}
+$('ir').onclick=entrar;inp.addEventListener('keydown',e=>{if(e.key==='Enter')entrar()});
+
+// Papelitos dentro del frasco
+const cols=['#ffd0e6','#e9d5ff','#fff0f6','#ffc2e0','#d9c2f5','#ffe3f0','#f3c6ff','#ffb3d4'],pap=[],NP=150,NS='http://www.w3.org/2000/svg';
+const mk=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e};
+const pos=[];for(let i=0;i<NP;i++)pos.push([40+rnd()*140,72+rnd()*192,(rnd()-.5)*110,.85+rnd()*.5,i]);
+pos.sort((a,b)=>a[1]-b[1]);
+pos.forEach(([x,y,a,s,i])=>{
+  const g=mk('g',{transform:`translate(${x} ${y}) rotate(${a}) scale(${s})`});
+  g.appendChild(mk('rect',{x:-17,y:-11,width:34,height:22,rx:2,fill:cols[i%8],stroke:'#c0689a','stroke-opacity':.4,'stroke-width':.8}));
+  g.appendChild(mk('path',{d:'M-14 -4H14M-14 2H8',stroke:'#b83b86','stroke-opacity':.28,'stroke-width':1}));
+  if(i%4===0){const h=mk('text',{x:10,y:7,'font-size':9,fill:'#ff3d8f','text-anchor':'middle'});h.textContent='♥';g.appendChild(h)}
+  $('pap').appendChild(g);pap.push(g);
+});
+function llenar(){const hide=Math.round(NP*.7*Math.min(n,100)/100);pap.forEach((g,i)=>g.style.display=i<hide?'none':'')}
+
+function corazones(k){
+  for(let i=0;i<k;i++){const h=document.createElement('span');h.className='h';h.textContent='♥';
+    h.style.left=Math.random()*100+'vw';h.style.fontSize=(14+Math.random()*22)+'px';
+    h.style.animationDuration=(5+Math.random()*5)+'s';h.style.animationDelay=(Math.random()*1.5)+'s';
+    document.body.appendChild(h);setTimeout(()=>h.remove(),12000)}
+}
+setInterval(()=>{if($('app').classList.contains('on'))corazones(1)},1200);
+
+function mostrar(t,p){
+  const c=$('card');c.innerHTML='<small>'+t+'</small><p></p>';c.querySelector('p').textContent=p;
+  c.classList.remove('sale');void c.offsetWidth;c.classList.add('sale');
+  $('jar').classList.remove('t');void $('jar').offsetWidth;$('jar').classList.add('t');
+}
+function sig(){
+  if(n<100){mostrar('Razón '+(n+1)+' de 100',R[n]);n++;$('prog').style.width=n+'%';llenar();
+    $('btn').textContent=n<100?'Siguiente papelito 💌':'Un último mensaje 💌'}
+  else if(n===100){mostrar('Feliz primer mes ❤','Y todavía me quedan infinitas razones más. Te amo, Violeta.');corazones(45);n=101;$('btn').textContent='Volver a empezar ↺';parar()}
+  else{n=0;$('prog').style.width='0';llenar();$('card').innerHTML='<small>Primer mes ❤</small><p>Toca el frasco para sacar el primer papelito</p>';$('btn').textContent='Sacar un papelito 💌'}
+}
+function parar(){clearInterval(timer);timer=null;$('auto').textContent='▶ Auto'}
+$('btn').onclick=()=>{parar();sig()};$('jar').onclick=()=>{parar();sig()};
+$('auto').onclick=()=>{if(timer){parar();return}if(n>100)sig();$('auto').textContent='⏸ Pausa';sig();timer=setInterval(sig,7000)};
+</script>
+</body>
+</html>
